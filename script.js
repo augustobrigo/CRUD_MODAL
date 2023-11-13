@@ -112,7 +112,10 @@ function modificar(vector){
  document.querySelector("#txtApellido").value=deserializar[2];
  document.querySelector("#txtTelefono").value=deserializar[3];
  console.log("dni :"+deserializar[0]);
- $('#formclientesModal').modal("show");
+ document.querySelector("#btnInsertar").disabled=true;
 
+ document.querySelector("#btnModificar").disabled=false;
+
+ $('#formclientesModal').modal("show");
 
 }
