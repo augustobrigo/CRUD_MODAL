@@ -47,7 +47,7 @@ function cargarTabla(){
          "ELIMINAR<i class='bi-trash'></i></a></div> "+
          //td del modificar
          "<div class='col-lg-2 text-center'><a class='btn btn-info btn-md' "+
-         "href='javascript:void(0)' onclick=modificar("+vector+")</td>"+
+         "href='javascript:void(0)' onclick=modificar('"+vector+"')>"+
          "MODIFICAR<i class='bi bi-arrow-clockwise'></i></a></div>";
        }
        }
