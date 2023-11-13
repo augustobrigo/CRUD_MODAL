@@ -117,5 +117,9 @@ function modificar(vector){
  document.querySelector("#btnModificar").disabled=false;
 
  $('#formclientesModal').modal("show");
+ document.querySelector("#btnModificar").addEventListener("click",accionAjaxModificar);
+ function accionAjaxModificar(){
+    console.log("modficar");
+ }
 
 }
