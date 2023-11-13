@@ -44,11 +44,11 @@ function cargarTabla(){
          //parámetro incluido: dni de esa tupla
          " href='javascript:void(0)' onclick=eliminar(\'"+clientes.dni+"\')>"+
          //texto del botón e icono
-         "ELIMINAR<span class='glyphicon glyphicon-trash'></span> </a></div> "+
+         "ELIMINAR<i class='bi-trash'></i></a></div> "+
          //td del modificar
          "<div class='col-lg-2 text-center'><a class='btn btn-info btn-md' "+
          "href='javascript:void(0)' onclick=modificar("+vector+")</td>"+
-         "MODIFICAR<span class='glyphicon glyphicon-pencil'></span> </a></div>";
+         "MODIFICAR<i class='bi bi-arrow-clockwise'></i></a></div>";
        }
        }
      } 
@@ -61,11 +61,13 @@ function cargarTabla(){
  
 
 function insertarUsuario(){
+    console.log("entro en insertar");
 
 }
 function eliminar(dni){
+    console.log("entro en eliminar "+dni)
 
 }
 function modificar(vector){
-
+ console.log("entro en modificar "+vector)
 }
