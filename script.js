@@ -3,7 +3,7 @@ var tabla=document.querySelector("#cajaTabla");
 var bloqueHtml=document.createElement("div");
 
 function inicio(){
-  let elemento=document.querySelector("#botonAdd");
+  let elemento=document.querySelector("#btnInsertar");
   elemento.addEventListener("click",insertarUsuario);
   
   cargarTabla();
@@ -62,12 +62,57 @@ function cargarTabla(){
 
 function insertarUsuario(){
     console.log("entro en insertar");
+    let dniTxt=document.querySelector("#txtDni").value;
+    let nombreTxt=document.querySelector("#txtNombre").value;
+    let apellidoTxt=document.querySelector("#txtApellido").value;
+    let telefonoTxt=document.querySelector("#txtTelefono").value;
+    console.log("insertando: "+dniTxt)
+    $.ajax({
+        url:"http://moralo.atwebpages.com/menuAjax/clientes/insertarClientes.php",
+        type:"POST",
+        data:{
+// sintaxis: variablePHP : variableJs
+           dni:dniTxt,
+           nombre:nombreTxt,
+           apellido:apellidoTxt,
+           telefono:telefonoTxt
+        },
+        dataType:"JSON"
+    });
+    location.reload();
 
 }
 function eliminar(dni){
-    console.log("entro en eliminar "+dni)
+    console.log("entro en eliminar "+dni);
+    let respuesta=confirm("¿Estás seguro de querer eliminar "+dni+"?");
+    //cargar el método AJAX que ejecuta el servicio eliminar.php
+    if (respuesta){
+   
+    $.ajax({
+      //url del servicio
+      url:"http://moralo.atwebpages.com/menuAjax/clientes/eliminarClientes.php",
+      //method
+      type:"POST",
+      data:{
+        dni:dni
+      },
+      dataType:"JSON"
 
+    });
+   location.reload();
+ }
 }
 function modificar(vector){
  console.log("entro en modificar "+vector)
+ let cadena=String(vector);
+ let deserializar=cadena.split(",");
+ document.querySelector("#txtDni").value=deserializar[0];
+ document.querySelector("#txtDni").setAttribute("disabled",true);
+ document.querySelector("#txtNombre").value=deserializar[1];
+ document.querySelector("#txtApellido").value=deserializar[2];
+ document.querySelector("#txtTelefono").value=deserializar[3];
+ console.log("dni :"+deserializar[0]);
+ $('#formclientesModal').modal("show");
+
+
 }
