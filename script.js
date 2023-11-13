@@ -34,21 +34,21 @@ function cargarTabla(){
         console.log("vector"+clientes.dni);
         let vector=[clientes.dni,clientes.nombre,clientes.apellido,clientes.telefono];
          bloqueHtml.innerHTML+="<div class='row'> "+
-         "<div class='col-lg-2 text-center'"+clientes.dni+"</div>"+
-         "<div class='col-lg-2 text-center'"+clientes.nombre+"</div>"+
-         "<div class='col-lg-2 text-center'"+clientes.apellido+"</div>"+
-         "<div class='col-lg-2 text-center'"+clientes.telefono+"</div>"+
+         "<div class='col-lg-2 text-center'>"+clientes.dni+"</div>"+
+         "<div class='col-lg-2 text-center'>"+clientes.nombre+"</div>"+
+         "<div class='col-lg-2 text-center'>"+clientes.apellido+"</div>"+
+         "<div class='col-lg-2 text-center'>"+clientes.telefono+"</div>"+
          //simular botón con a href añado clase btn btn-danger (color rojo)
-         "<div class='col-lg-2 text-center'><a class='btn btn-danger btn-md'"+
+         "<div class='col-lg-2 text-center mb-2'><a class='btn btn-danger btn-md'"+
          //anulo el href, no hay link , pero sí hay evento onclick con 
          //parámetro incluido: dni de esa tupla
          " href='javascript:void(0)' onclick=eliminar(\'"+clientes.dni+"\')>"+
          //texto del botón e icono
-         "ELIMINAR<span class='glyphicon glyphicon-trash'></span> </a></td> "+
+         "ELIMINAR<span class='glyphicon glyphicon-trash'></span> </a></div> "+
          //td del modificar
          "<div class='col-lg-2 text-center'><a class='btn btn-info btn-md' "+
          "href='javascript:void(0)' onclick=modificar("+vector+")</td>"+
-         "MODIFICAR<span class='glyphicon glyphicon-pencil'></span> </a></td></tr> ";
+         "MODIFICAR<span class='glyphicon glyphicon-pencil'></span> </a></div>";
        }
        }
      } 
